@@ -231,3 +231,32 @@ $JACORB_HOME/bin/ns
 java StringOperationServer -ORBInitialPort 1050 -ORBInitialHost localhost
 4.cd ~/Downloads
 java StringOperationClient -ORBInitialPort 1050 -ORBInitialHost localhost
+
+
+//final
+
+
+
+export JACORB_HOME=/home/ubuntu/JacORB-2.2.4
+export PATH=$PATH:$JACORB_HOME/bin
+export CLASSPATH=.:$JACORB_HOME/lib/jacorb.jar:$JACORB_HOME/lib/idl.jar:$JACORB_HOME/lib/logkit-1.2.jar:$JACORB_HOME/lib/avalon-framework-4.1.5.jar
+cd /home/ubuntu
+idl StringOperation.idl
+
+javac SimpleString/*.java StringOperationImpl.java StringOperationServer.java StringOperationClient.java
+//if issue
+sudo apt update
+sudo apt install openjdk-8-jdk
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+cd /home/ubuntu
+javac SimpleString/*.java StringOperationImpl.java StringOperationServer.java StringOperationClient.java
+
+
+1.cd $JACORB_HOME/bin
+tnameserv -ORBInitialPort 1050 &
+2.cd /home/ubuntu
+java StringOperationServer -ORBInitialPort 1050 -ORBInitialHost localhost
+3.cd /home/ubuntu
+java StringOperationClient -ORBInitialPort 1050 -ORBInitialHost localhost
+

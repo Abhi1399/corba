@@ -156,107 +156,17 @@ e.printStackTrace();
 
 
 // sudo apt-get remove openjdk*
- sudo apt update
- sudo apt install openjdk-8-jdk openjdk-8-jre
-sudo update-alternatives --config java
-sudo apt update
-sudo apt install openjdk-11-jdk
-sudo apt-get install libjacorb-java
-
-idlj -fall StringOperation.idl
-javac SimpleString/*.java
-javac StringOperationImpl.java StringOperationServer.java StringOperationClient.java
-orbd -ORBInitialPort 8080
-java StringOperationServer -ORBInitialPort 8080
-java StringOperationClient -ORBInitialPort 8080
-
-
-
-//1.idlj StringOperation.ldl
-idlj -fall -oldImplBase StringOperation.idl
-javac *.java
-orbd -ORBInitialPort 8080
-
-2.java StringOperationServer -ORBInitialPort 8080 -ORBInitialHost Localhost
-
-final
-
-//1.idlj -fall StringOperation.idl
-javac SimpleString/*.java
-javac StringOperationImpl.java StringOperationServer.java StringOperationClient.java
-orbd -ORBInitialPort 8080
-2.java StringOperationServer -ORBInitialPort 8080
-3.java StringOperationClient -ORBInitialPort 8080 -ORBInitialHost localhost
-
-
-//permanent changes
-export JACORB_HOME=~/jacorb-3.9
-export PATH=$PATH:$JACORB_HOME/bin
-export CLASSPATH=.:$JACORB_HOME/lib/jacorb.jar:$JACORB_HOME/lib/logkit.jar:$JACORB_HOME/lib/avalon-framework.jar
-
-idl StringOperation.idl
-javac *.java SimpleString/*.java
-tnameserv &
-java StringOperationServer -ORBInitialPort 900
-java StringOperationClient -ORBInitialPort 900
-
-
-//temporary
-1.export JACORB_HOME=~/jacorb-3.9
-export PATH=$PATH:$JACORB_HOME/bin
-export CLASSPATH=.:$JACORB_HOME/lib/jacorb.jar:$JACORB_HOME/lib/logkit.jar:$JACORB_HOME/lib/avalon-framework.jar
-
-idl StringOperation.idl
-javac SimpleString/*.java StringOperationImpl.java StringOperationServer.java StringOperationClient.java
-tnameserv -ORBInitialPort 900
-
-2.export JACORB_HOME=~/jacorb-3.9
-export CLASSPATH=.:$JACORB_HOME/lib/jacorb.jar:$JACORB_HOME/lib/logkit.jar:$JACORB_HOME/lib/avalon-framework.jar
-java StringOperationServer -ORBInitialPort 900
-
-3.export JACORB_HOME=~/jacorb-3.9
-export CLASSPATH=.:$JACORB_HOME/lib/jacorb.jar:$JACORB_HOME/lib/logkit.jar:$JACORB_HOME/lib/avalon-framework.jar
-java StringOperationClient -ORBInitialPort 900
-
-
-//optional
-1.cd ~/Downloads
-export JACORB_HOME=~/Downloads/jacorb-3.9
-export CLASSPATH=.:$JACORB_HOME/lib/jacorb.jar:$JACORB_HOME/lib/logkit.jar:$JACORB_HOME/lib/avalon-framework.jar
-$JACORB_HOME/bin/idl StringOperation.idl
-javac SimpleString/*.java StringOperationImpl.java StringOperationServer.java StringOperationClient.java
-2.cd ~/Downloads
-$JACORB_HOME/bin/ns
-3.cd ~/Downloads
-java StringOperationServer -ORBInitialPort 1050 -ORBInitialHost localhost
-4.cd ~/Downloads
-java StringOperationClient -ORBInitialPort 1050 -ORBInitialHost localhost
-
-
-//final
-
-
-
-export JACORB_HOME=/home/ubuntu/JacORB-2.2.4
-export PATH=$PATH:$JACORB_HOME/bin
-export CLASSPATH=.:$JACORB_HOME/lib/jacorb.jar:$JACORB_HOME/lib/idl.jar:$JACORB_HOME/lib/logkit-1.2.jar:$JACORB_HOME/lib/avalon-framework-4.1.5.jar
-cd /home/ubuntu
-idl StringOperation.idl
-
-javac SimpleString/*.java StringOperationImpl.java StringOperationServer.java StringOperationClient.java
-//if issue
 sudo apt update
 sudo apt install openjdk-8-jdk
 sudo update-alternatives --config java
 sudo update-alternatives --config javac
-cd /home/ubuntu
-javac SimpleString/*.java StringOperationImpl.java StringOperationServer.java StringOperationClient.java
+sudo apt install openjdk-11-jdk
+sudo apt-get install libjacorb-java
 
 
-1.cd $JACORB_HOME/bin
-tnameserv -ORBInitialPort 1050 &
-2.cd /home/ubuntu
-java StringOperationServer -ORBInitialPort 1050 -ORBInitialHost localhost
-3.cd /home/ubuntu
-java StringOperationClient -ORBInitialPort 1050 -ORBInitialHost localhost
-
+//idlj StringOperation.idl
+idlj -fall -oldImplBase StringOperation.idl
+javac *.java
+orbd -ORBInitialPort 8080
+java StringOperationServer -ORBInitialPort 8080 -ORBInitialHost localhost
+java StringOperationClient -ORBInitialPort 8080 -ORBInitialHost localhost
